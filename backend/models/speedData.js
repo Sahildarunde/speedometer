@@ -24,7 +24,7 @@ const SpeedData = sequelize.define('SpeedData', {
   },
 });
 
-// Synchronize the model with the database
+
 SpeedData.sync().then(() => {
   console.log('SpeedData model synced with database');
 }).catch((err) => {

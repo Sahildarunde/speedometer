@@ -14,12 +14,12 @@ app.use(cors({
   origin: '*',
 }));
 
-// Use removeOldEntries middleware on every request
+
 
 
 let intervalId;
 
-//generate and insert dummy data into the db
+
 const generateAndInsertData = () => {
   const randomSpeed = Math.floor(Math.random() * 100) + 1;
   SpeedData.create({speed: randomSpeed})
