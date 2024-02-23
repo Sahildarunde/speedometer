@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: speedometer
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Sahil
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    volumes:
+      - logs:/index/logs
+      - ./backend:/apindex
+      - /index/node_modules
+    depends_on:
+      - mysql
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend/src:/app/src
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:
+  logs:
