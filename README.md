@@ -22,7 +22,8 @@ Certainly! Here's a simplified version of a README.md file for your project:
 
 markdown
 Copy code
-# Project Name
+# Speedometer
+
 
 This project is a simple speedometer application that displays random speed data.
 
